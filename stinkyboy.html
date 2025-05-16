@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StinkyBoy Coin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+  <style> 
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://i.imgur.com/PyLAogH.jpeg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      background-size: auto;
+      font-family: 'Luckiest Guy', cursive;
+      color: #ffffff;
+    } 
+
+    .marquee {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      background: rgba(0, 80, 0, 0.85);
+      color: #6cff79;
+      font-family: 'Rubik', sans-serif;
+      font-weight: 500;
+      padding: 12px 0;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      text-shadow: 0 0 2px #6cff79, 0 0 4px #37cc52;
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 15s linear infinite;
+      font-size: 18px;
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .content {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 100px 20px 60px;
+      min-height: 200vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-image {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 30px;
+    }
+
+    .stinky-video {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+    }
+
+    .description {
+      max-width: 800px;
+      font-size: 20px;
+      line-height: 1.7;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      margin-bottom: 40px;
+    }
+
+    .supply-title {
+      font-size: 28px;
+      margin-bottom: 12px;
+      text-shadow: 0 0 4px #00ff6a;
+      color: #adffb2;
+    }
+
+    .supply-table {
+      width: 400px;
+      font-size: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #ffffff;
+      border-collapse: collapse;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 255, 128, 0.4);
+      margin-bottom: 60px;
+    }
+
+    .supply-table th,
+    .supply-table td {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 12px 18px;
+    }
+
+    .supply-table td.amount {
+      color: #00ff6a;
+      font-size: 24px;
+      font-family: 'Rubik', sans-serif;
+      font-weight: bold;
+      text-shadow: 0 0 3px #00ff6a;
+    }
+
+    .info-table {
+      max-width: 800px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      margin-bottom: 60px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,255,128,0.4);
+      font-family: 'Rubik', sans-serif;
+    }
+
+    .info-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table th, .info-table td {
+      padding: 16px 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #ffffff;
+      text-align: left;
+      font-size: 18px;
+    }
+
+    .info-table th {
+      background-color: rgba(0, 80, 0, 0.7);
+      color: #6cff79;
+      font-size: 20px;
+    }
+
+    .token-ticker {
+      margin-bottom: 20px;
+      font-size: 22px;
+      color: #6cff79;
+      text-shadow: 0 0 3px #00ff6a;
+      font-family: 'Rubik', sans-serif;
+    }
+
+    .music-button {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      padding: 10px 25px;
+      background: rgba(0, 128, 0, 0.8);
+      border-radius: 30px;
+      font-family: 'Rubik', sans-serif;
+      color: #6cff79;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 8px #00ff6a;
+      z-index: 1001;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .music-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 16px #00ff6a;
+    }
+
+    /* Logo X di bawah video */
+    .logo-x-container {
+      margin-top: 10px;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+    .logo-x {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .logo-x:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .description {
+        font-size: 17px;
+        padding: 20px;
+      }
+
+      .marquee span {
+        font-size: 15px;
+      }
+
+      .supply-table {
+        width: 280px;
+        font-size: 16px;
+      }
+
+      .supply-table td.amount {
+        font-size: 20px;
+      }
+
+      .supply-title {
+        font-size: 22px;
+      }
+
+      .music-button {
+        font-size: 15px;
+        padding: 8px 20px;
+      }
+
+      .info-table th, .info-table td {
+        font-size: 16px;
+      }
+
+      .logo-x {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Headbar -->
+  <div class="marquee">
+    <span>💨 Welcome to the world of StinkyBoy — the stinkiest meme coin in crypto! 💨 Join us and embrace the stink! 💨</span>
+  </div>
+
+  <!-- Music Button + Audio -->
+  <div class="music-button" id="musicBtn">MUSIC</div>
+  <audio id="stinkyAudio" loop>
+    <source src="StinkyBoy Anthem.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="content">
+    <img src="https://i.imgur.com/TpyLxbi.jpeg" alt="StinkyBoy" class="hero-image">
+
+    <!-- Looping Video -->
+    <video class="stinky-video" autoplay loop muted playsinline>
+      <source src="https://i.imgur.com/bHVZuLz.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="description">
+      <h1>Welcome to StinkyBoy</h1>
+      <p>
+        StinkyBoy is not just another meme coin it’s a movement of odor, laughter, and rebellion against boring crypto projects. Inspired by the spirit of fun, absurdity, and unapologetic stinkiness, StinkyBoy is here to shake things up.
+      </p>
+      <p>
+        With a loyal community, transparent goals, and a strong sense of humor, StinkyBoy invites you to stop being serious and start being stinky. Whether you're here to laugh, invest, or simply be a part of something hilariously weird you're welcome here.
+      </p>
+      <p>
+        Get ready to ride the stink wave. This is just the beginning. Join the stinkiest revolution in crypto!
+      </p>
+    </div>
+
+    <!-- Total Supply Table -->
+    <div class="supply-title">Total Supply</div>
+    <table class="supply-table">
+      <tr>
+        <th>Token</th>
+        <th>Amount</th>
+      </tr>
+      <tr>
+        <td>StinkyBoy</td>
+        <td class="amount">1,000,000,000</td>
+      </tr>
+    </table>
+
+    <div class="token-ticker">Ticker: $Stinky</div>
+
+    <!-- How to Buy Table -->
+    <div class="info-table">
+      <table>
+        <tr><th colspan="2">How to Buy</th></tr>
+        <tr><td>Step 1</td><td>Download Phantom wallet or your preferred Solana wallet.</td></tr>
+        <tr><td>Step 2</td><td>Buy SOL from an exchange and send it to your wallet.</td></tr>
+        <tr><td>Step 3</td><td>Go to pump.fun and search for $Stinky.</td></tr>
+        <tr><td>Step 4</td><td>Connect your wallet and start buying!</td></tr>
+      </table>
+    </div>
+
+    <!-- Buy on Pump.fun Table -->
+    <div class="info-table">
+      <table>
+        <tr><th colspan="2">Buy on Pump.fun</th></tr>
+        <tr><td>Platform</td><td><a href="https://pump.fun" target="_blank" style="color:#6cff79; text-decoration: underline;">pump.fun</a></td></tr>
+        <tr><td>Search</td><td>Type <strong>$Stinky</strong> in the search bar</td></tr>
+        <tr><td>Buy</td><td>Connect wallet & buy $Stinky with SOL</td></tr>
+      </table>
+    </div>
+
+    <!-- Extra Video -->
+    <video class="stinky-video" autoplay loop muted playsinline>
+      <source src="https://i.imgur.com/ge2PkbP.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Logo X di bawah video -->
+    <div class="logo-x-container">
+      <a href="https://x.com/StinkyBoyCoinn" target="_blank" title="Follow StinkyBoy on X (Twitter)">
+        <img src="https://i.imgur.com/k2372BT.png" alt="X Logo" class="logo-x" />
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    const musicBtn = document.getElementById('musicBtn');
+    const stinkyAudio = document.getElementById('stinkyAudio');
+
+    let musicPlaying = false;
+
+    // Autoplay audio on page load (may be blocked by browser)
+    window.addEventListener('load', () => {
+      stinkyAudio.play().then(() => {
+        musicPlaying = true;
+        musicBtn.style.background = 'rgba(0, 180, 0, 0.9)';
+      }).catch(() => {
+        // Autoplay blocked, wait for user interaction
+        musicPlaying = false;
+        musicBtn.style.background = 'rgba(0, 128, 0, 0.8)';
+      });
+    });
+
+    musicBtn.addEventListener('click', () => {
+      if (!musicPlaying) {
+        stinkyAudio.play();
+        musicPlaying = true;
+        musicBtn.style.background = 'rgba(0, 180, 0, 0.9)';
+      } else {
+        stinkyAudio.pause();
+        musicPlaying = false;
+        musicBtn.style.background = 'rgba(0, 128, 0, 0.8)';
+      }
+    });
+  </script>
+</body>
+</html>
